@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
 
-    home: Home(),
+  home: Home(),
 
 ));
 
@@ -21,13 +21,13 @@ class Home extends StatelessWidget{
         child: ElevatedButton(
           onPressed:() {print("elevated button pressed");},
           child: Icon(
-            Icons.add_circle
+              Icons.add_circle
           ),
 
-        // child: Icon(
-        //   Icons.airport_shuttle,
-        //   color: Colors.blue,
-        //   size: 50.0,
+          // child: Icon(
+          //   Icons.airport_shuttle,
+          //   color: Colors.blue,
+          //   size: 50.0,
         ),
 
 
