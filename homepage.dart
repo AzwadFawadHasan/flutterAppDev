@@ -1,51 +1,76 @@
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-
   home: Home(),
-
 ));
 
-
-class Home extends StatelessWidget{
+class Home extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Task Board'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            height: 100,
+            width: 100,
 
-        centerTitle: true,
-        backgroundColor: Colors.black,
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed:() {print("elevated button pressed");},
-          child: Icon(
-              Icons.add_circle
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Welcome to",
+
+                  ),
+                  SizedBox(height: 0), // Adding some space between the texts
+                  Text(
+                    "Plan IT",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
+          Container(
+            height: 100,
+            width: 100,
 
-          // child: Icon(
-          //   Icons.airport_shuttle,
-          //   color: Colors.blue,
-          //   size: 50.0,
-        ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Your Personal task management\n             and planning solution",
 
+                  ),
+                  SizedBox(height: 5), // Adding some space between the
 
-        //child: Image.asset('assets/ss.jpg'),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add your button logic here
+                      print("Button pressed");
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(56, 56, 56, 1.0)),
+                        minimumSize: MaterialStateProperty.all<Size>(Size(201, 33))
 
+                    ),
+                    child: Text("Let's Get Started"),
+                  ),
+
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("bitton was pressed");
-        },
-        child: Icon(
-          Icons.add,
-        ),
-        backgroundColor: Colors.black,
 
-      ),
     );
-
   }
-
 }

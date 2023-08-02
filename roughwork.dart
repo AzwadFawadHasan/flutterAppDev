@@ -1,3 +1,58 @@
+// import 'package:flutter/material.dart';
+//
+// void main() => runApp(MaterialApp(
+//
+//   home: Home(),
+//
+// ));
+//
+//
+// class Home extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context){
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Task Board'),
+//
+//         centerTitle: true,
+//         backgroundColor: Colors.black,
+//       ),
+//       body: Center(
+//         child: ElevatedButton(
+//           onPressed:() {print("elevated button pressed");},
+//           child: Icon(
+//             Icons.email,
+//
+//           ),
+//
+//
+//           // child: Icon(
+//           //   Icons.airport_shuttle,
+//           //   color: Colors.blue,
+//           //   size: 50.0,
+//         ),
+//
+//
+//         //child: Image.asset('assets/ss.jpg'),
+//
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: () {
+//           print("bitton was pressed");
+//         },
+//         child: Icon(
+//           Icons.add,
+//         ),
+//         backgroundColor: Colors.black,
+//
+//       ),
+//     );
+//
+//   }
+//
+// }
+
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -14,7 +69,7 @@ class Home extends StatelessWidget {
       return 'Three';
     }
     // Add more cases for other numbers if needed
-    return 'Unknown'; // Default fallback for any other number
+    return 'Unknown'; // Default fallback
   }
 
   @override
@@ -29,13 +84,10 @@ class Home extends StatelessWidget {
         itemCount: 3,
         itemBuilder: (context, position) {
           String heading = "Heading ${numberToWords(position + 1)}"; // Convert number to words
-          String subheading = "Your Personal task management and planning solution for planning your day, week & months";
-
-          String date = "12:55pm 25th May, 2023"; // Replace this with your date value
+          String subheading = "Your Personal task management and planning solution for planning your day, week & months\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+              "12:55pm 25th May, 2023"; // Convert number to words
 
           return Card(
-
-            color: Color.fromRGBO(245, 248, 251, 1.0),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -46,22 +98,9 @@ class Home extends StatelessWidget {
                     style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 5),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          subheading,
-                          style: TextStyle(fontSize: 14.0),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          date,
-                          style: TextStyle(fontSize: 14.0, color: Colors.grey),
-                        ),
-                      ],
-                    ),
+                  Text(
+                    subheading,
+                    style: TextStyle(fontSize: 14.0),
                   ),
                 ],
               ),
