@@ -143,11 +143,12 @@ class _TipCalculatorState extends State<TipCalculator> {
 
 
                 ),
-                onSaved: (value){
-                  if(value == null || value.isEmpty){
+                onFieldSubmitted: (value){
+                  if( value.isEmpty){
                     totalBillController.text= "0.00";
                   }
                   totalBillController.text = value.toString();
+                  //formKey.currentState!.save();
                   setState(() {
 
                   });
