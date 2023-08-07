@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:myapp/widgets/Simple%20Input%20Field.dart';
 
 class TipCalculator extends StatefulWidget{
   const TipCalculator({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _TipCalculatorState extends State<TipCalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tip Calcualtor",
+        title: const Text("Tip Calculator",
             style: TextStyle(fontSize:10, color: Colors.black87, fontWeight: FontWeight.w700)),
         centerTitle: true,
         elevation: 3,
@@ -51,7 +52,7 @@ class _TipCalculatorState extends State<TipCalculator> {
                 child: Column(
 
                   children: [
-                    Text("Total BIll", style: TextStyle(color: textLightBlack),),
+                    Text("Total Bill", style: TextStyle(color: textLightBlack),),
                     Text("\$ ${totalBillController.text}", style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700, color: textBlack)),
 
                     Row(
@@ -100,8 +101,8 @@ class _TipCalculatorState extends State<TipCalculator> {
               const Spacer(),
 
               const Text("Total bill", style: TextStyle(fontSize:15, fontWeight:FontWeight.w900, color: textBlack),),
-              const SizedBox(height: 5,),
-              TextFormField(
+              //const SizedBox(height: 5,),
+              /*TextFormField(
                 controller: totalBillController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -154,7 +155,60 @@ class _TipCalculatorState extends State<TipCalculator> {
                   });
 
                 },
-              ),
+              ),*/
+              SimpleInputField(controller: totalBillController, title: "", hinttext: "Please enter Total Bill"),
+              const Text("Tip Percentage", style: TextStyle(fontSize:15, fontWeight:FontWeight.w900, color: textBlack),),
+              SimpleInputField(controller: totalBillController, title: "", hinttext: "Please enter Total Bill"),
+              const Text("Number Of People", style: TextStyle(fontSize:15, fontWeight:FontWeight.w900, color: textBlack),),
+              SimpleInputField(controller: totalBillController, title: "", hinttext: "Please enter Total Bill"),
+              //creating buttons
+
+              Row(
+                children: [
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: (){
+                        formKey.currentState!.validate();
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 45),
+                        decoration: BoxDecoration(
+                          color: Colors.black87,
+                          borderRadius: BorderRadius.circular(10),
+
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'Calculate',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 10,),
+
+                  GestureDetector(
+                    onTap: (){
+                      formKey.currentState!.validate();
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 45),
+                      decoration: BoxDecoration(
+                        color: clearButtonColor,
+                        borderRadius: BorderRadius.circular(10),
+
+                      ),
+                      child: const Text(
+                        'Clear',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),

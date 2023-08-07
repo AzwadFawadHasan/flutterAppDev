@@ -82,9 +82,17 @@ class _SimpleInputFieldState extends State<SimpleInputField> {
 
 
           },
+          onChanged: (value){
+            setState(() {
+
+            });
+          },
 
           validator: (value){
-            
+            if (value == null || value.isEmpty ){
+              return "please enter a valid amount";
+            }
+            return null;
           },
         ),
       ],
