@@ -10,6 +10,8 @@ class TipCalculator extends StatefulWidget{
 
 class _TipCalculatorState extends State<TipCalculator> {
 
+  final formKey = GlobalKey<FormState>();
+
   static const Color containerColor = Color(0xff5F8FB);
   static const Color textBlack = Color(0xff232323);
   static const Color textLightBlack = Color(0xff717171);
@@ -30,64 +32,117 @@ class _TipCalculatorState extends State<TipCalculator> {
 
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            Container(
-              //color: Colors.purple,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: containerColor,
-                borderRadius: BorderRadius.circular(5),
+        child: Form (
+          key: formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //Top section
+              Container(
+                //color: Colors.purple,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: containerColor,
+                  borderRadius: BorderRadius.circular(5),
+
+                ),
+                padding: const EdgeInsets.all(15),
+                child: Column(
+
+                  children: [
+                    Text("Total BIll", style: TextStyle(color: textLightBlack),),
+                    Text("\$ 0.00", style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700, color: textBlack)),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,//to control vertical alignment
+                      children: [
+                        Text("Total Persons", style: TextStyle(color: textLightBlack),),
+                        Text("Tip Amount", style: TextStyle(color: textLightBlack),)
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,//to control vertical alignment
+                      children: [
+                        Text("05", style: TextStyle(fontSize:14, fontWeight:FontWeight.w700, color: textBlack),),
+                        Text("\$ 20.00 ", style: TextStyle(fontSize:14, fontWeight:FontWeight.w700, color: textBlack),)
+                      ],
+                    )
+                  ],
+                ),
 
               ),
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                children: [
-                  Text("Total BIll", style: TextStyle(color: textLightBlack),),
-                  Text("\$ 0.00", style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700, color: textBlack)),
+              //gap
+              const SizedBox(
+                height: 10,
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,//to control vertical alignment
-                    children: [
-                      Text("Total Persons", style: TextStyle(color: textLightBlack),),
-                      Text("Tip Amount", style: TextStyle(color: textLightBlack),)
-                    ],
+              ),
+              //per person section
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: containerColor,
+                  borderRadius: BorderRadius.circular(5),
+
+                ),
+                padding: const EdgeInsets.all(15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Amount Per Person", style: TextStyle(color: textLightBlack),),
+                    Text("\$ 20.00 ", style: TextStyle(fontSize:18, fontWeight:FontWeight.w900, color: textBlack),)
+
+
+                  ],
+                ),
+              ),
+              const Spacer(),
+
+              const Text("Total bill", style: TextStyle(fontSize:15, fontWeight:FontWeight.w900, color: textBlack),),
+              const SizedBox(height: 5,),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: "Please enter total bill amount",
+                  hintStyle:const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                    color: textLightBlack,
+
+                  ),
+                  suffixIcon: const Icon(Icons.attach_money, color: textBlack,),
+                  filled: true,
+                  fillColor: containerColor,
+
+                  border: OutlineInputBorder(
+                    borderSide: const  BorderSide(
+                      width: 1,
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+
+                  ),
+                  enabledBorder:  OutlineInputBorder(
+                    borderSide: const  BorderSide(
+                      width: 1,
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+
+                  ),
+                  focusedBorder:  OutlineInputBorder(
+                    borderSide: const  BorderSide(
+                      width: 1,
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+
                   ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,//to control vertical alignment
-                    children: [
-                      Text("05", style: TextStyle(fontSize:14, fontWeight:FontWeight.w700, color: textBlack),),
-                      Text("\$ 20.00 ", style: TextStyle(fontSize:14, fontWeight:FontWeight.w700, color: textBlack),)
-                    ],
-                  )
-                ],
+
+                ),
               ),
-
-            ),
-            const SizedBox(
-              height: 10,
-
-            ),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: containerColor,
-                borderRadius: BorderRadius.circular(5),
-
-              ),
-              padding: const EdgeInsets.all(15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Amount Per Person", style: TextStyle(color: textLightBlack),),
-                  Text("\$ 20.00 ", style: TextStyle(fontSize:18, fontWeight:FontWeight.w900, color: textBlack),)
-
-
-                ],
-              ),
-            )
-          ],
+            ],
+          ),
         ),
 
       ),
