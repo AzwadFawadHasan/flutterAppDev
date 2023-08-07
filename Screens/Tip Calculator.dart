@@ -64,6 +64,28 @@ class _TipCalculatorState extends State<TipCalculator> {
                 ],
               ),
 
+            ),
+            const SizedBox(
+              height: 10,
+
+            ),
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: containerColor,
+                borderRadius: BorderRadius.circular(5),
+
+              ),
+              padding: const EdgeInsets.all(15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Amount Per Person", style: TextStyle(color: textLightBlack),),
+                  Text("\$ 20.00 ", style: TextStyle(fontSize:18, fontWeight:FontWeight.w900, color: textBlack),)
+
+
+                ],
+              ),
             )
           ],
         ),
