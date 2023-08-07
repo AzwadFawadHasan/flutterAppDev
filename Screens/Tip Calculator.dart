@@ -11,6 +11,7 @@ class TipCalculator extends StatefulWidget{
 class _TipCalculatorState extends State<TipCalculator> {
 
   final formKey = GlobalKey<FormState>();
+  final totalBillController = TextEditingController();
 
   static const Color containerColor = Color(0xff5F8FB);
   static const Color textBlack = Color(0xff232323);
@@ -51,7 +52,7 @@ class _TipCalculatorState extends State<TipCalculator> {
 
                   children: [
                     Text("Total BIll", style: TextStyle(color: textLightBlack),),
-                    Text("\$ 0.00", style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700, color: textBlack)),
+                    Text("\$ ${totalBillController.text}", style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700, color: textBlack)),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,//to control vertical alignment
@@ -101,6 +102,8 @@ class _TipCalculatorState extends State<TipCalculator> {
               const Text("Total bill", style: TextStyle(fontSize:15, fontWeight:FontWeight.w900, color: textBlack),),
               const SizedBox(height: 5,),
               TextFormField(
+                controller: totalBillController,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: "Please enter total bill amount",
                   hintStyle:const TextStyle(
@@ -140,6 +143,16 @@ class _TipCalculatorState extends State<TipCalculator> {
 
 
                 ),
+                onSaved: (value){
+                  if(value == null || value.isEmpty){
+                    totalBillController.text= "0.00";
+                  }
+                  totalBillController.text = value.toString();
+                  setState(() {
+
+                  });
+
+                },
               ),
             ],
           ),
