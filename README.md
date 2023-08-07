@@ -14,4 +14,5 @@ repo contains android studio flutter app development basic work and assignments.
 ![mainUI](https://github.com/AzwadFawadHasan/flutterAppDev/assets/106096161/e6e12f5c-c6a2-4663-817b-95a8b163791d)
 
 # Assignment-2 (myWork)
-![image](https://github.com/AzwadFawadHasan/flutterAppDev/assets/106096161/469a6214-3b6e-4c7b-9a99-3eac8b14408a)
+![image](https://github.com/AzwadFawadHasan/flutterAppDev/assets/106096161/4557d3a1-3c3c-46a3-ba8f-8f251f866e42)
+
