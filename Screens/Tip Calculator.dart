@@ -9,6 +9,13 @@ class TipCalculator extends StatefulWidget{
 }
 
 class _TipCalculatorState extends State<TipCalculator> {
+
+  static const Color containerColor = Color(0xff5F8FB);
+  static const Color textBlack = Color(0xff232323);
+  static const Color textLightBlack = Color(0xff717171);
+  static const Color clearButtonColor = Color(0xffFF7511);
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +33,37 @@ class _TipCalculatorState extends State<TipCalculator> {
         child: Column(
           children: [
             Container(
-              color: Colors.purple,
+              //color: Colors.purple,
               width: double.infinity,
-              height: 300,
+              decoration: BoxDecoration(
+                color: containerColor,
+                borderRadius: BorderRadius.circular(5),
+
+              ),
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                children: [
+                  Text("Total BIll", style: TextStyle(color: textLightBlack),),
+                  Text("\$ 0.00", style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700, color: textBlack)),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,//to control vertical alignment
+                    children: [
+                      Text("Total Persons", style: TextStyle(color: textLightBlack),),
+                      Text("Tip Amount", style: TextStyle(color: textLightBlack),)
+                    ],
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,//to control vertical alignment
+                    children: [
+                      Text("05", style: TextStyle(fontSize:14, fontWeight:FontWeight.w700, color: textBlack),),
+                      Text("\$ 20.00 ", style: TextStyle(fontSize:14, fontWeight:FontWeight.w700, color: textBlack),)
+                    ],
+                  )
+                ],
+              ),
+
             )
           ],
         ),
