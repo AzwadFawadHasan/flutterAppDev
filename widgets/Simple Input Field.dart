@@ -5,7 +5,9 @@ class SimpleInputField extends StatefulWidget {
   final TextEditingController controller;
   final String title;
   final String hinttext;
-  const SimpleInputField({Key? key, required this.controller, required this.title, required this.hinttext}):super(key: key);
+  final IconData? iconData;
+  const SimpleInputField({Key? key, required this.controller, required this.title, required this.hinttext, this.iconData}):super(key: key);
+
 
   @override
   State<SimpleInputField> createState() => _SimpleInputFieldState();
@@ -38,7 +40,8 @@ class _SimpleInputFieldState extends State<SimpleInputField> {
               color: textLightBlack,
 
             ),
-            suffixIcon: const Icon(Icons.attach_money, color: textBlack,),
+            suffixIcon: widget.iconData!= null ? Icon(widget.iconData, color: textBlack,): Text(""),
+            //suffixIcon: Icon(widget.iconData?? Icons.abc_outlined, color: textBlack,),
             filled: true,
             fillColor: containerColor,
 
